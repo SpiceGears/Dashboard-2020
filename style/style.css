@@ -1,0 +1,76 @@
+body{
+	
+	margin: 0px;
+	
+	background-color: #696969;
+}
+
+#container{
+	
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	
+	position: relative;
+	
+	width: 1200px;
+	height: 755px;
+	
+	border: 2px solid #202020;
+	border-radius: 40px;
+	
+	background-color: #404040;
+	//background: url("gif.gif") no-repeat fixed center;
+	//background-size: 755px 500px;
+}
+
+#top{
+	
+	text-align: center;
+	margin-top: 20px;
+	
+	height: 83px;
+	
+	border-bottom: 2px solid #202020;
+	
+}
+
+#middle{
+	
+	background-color: #404040;
+	height: 50px;
+}
+
+input[type=button]{
+	
+	border: 0px none black;
+	border-right: 2px solid #202020;
+	border-bottom: 2px solid #202020;
+	padding: 0px;
+	float: left;
+	
+	width: 150px;
+	height: 50px;
+	
+	background-color: #404040;
+	
+}
+
+input[type=button]:hover{
+	
+	cursor: pointer;
+	
+}
+
+input[type=button]:focus{
+	
+	outline: 0px none black;
+}
+
+#Camera,#Stats,#Vars,#ProgrammingStuff{
+	
+	border-radius: 0px 0px 40px 40px;
+	height: 600px;
+	
+	
+}
