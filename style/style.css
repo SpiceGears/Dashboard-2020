@@ -3,7 +3,16 @@ body{
 	margin: 0px;
 	
 	background-color: #696969;
+	
+	
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+	
+	//text-shadow: 1.5px 1.5px #202020, -1.5px 1.5px #202020, 1.5px -1.5px #202020, -1.5px -1.5px #202020, 0px 1.5px #202020, 0px -1.5px #202020, 1.5px 0px #202020, -1.5px 0px #202020;
+	
 }
+
+.shadow{text-shadow: rgb(0, 0, 0) 4px 0px 0px, rgb(0, 0, 0) 3.87565px 0.989616px 0px, rgb(0, 0, 0) 3.51033px 1.9177px 0px, rgb(0, 0, 0) 2.92676px 2.72656px 0px, rgb(0, 0, 0) 2.16121px 3.36588px 0px, rgb(0, 0, 0) 1.26129px 3.79594px 0px, rgb(0, 0, 0) 0.282949px 3.98998px 0px, rgb(0, 0, 0) -0.712984px 3.93594px 0px, rgb(0, 0, 0) -1.66459px 3.63719px 0px, rgb(0, 0, 0) -2.51269px 3.11229px 0px, rgb(0, 0, 0) -3.20457px 2.39389px 0px, rgb(0, 0, 0) -3.69721px 1.52664px 0px, rgb(0, 0, 0) -3.95997px 0.56448px 0px, rgb(0, 0, 0) -3.97652px -0.432781px 0px, rgb(0, 0, 0) -3.74583px -1.40313px 0px, rgb(0, 0, 0) -3.28224px -2.28625px 0px, rgb(0, 0, 0) -2.61457px -3.02721px 0px, rgb(0, 0, 0) -1.78435px -3.57996px 0px, rgb(0, 0, 0) -0.843183px -3.91012px 0px, rgb(0, 0, 0) 0.150409px -3.99717px 0px, rgb(0, 0, 0) 1.13465px -3.8357px 0px, rgb(0, 0, 0) 2.04834px -3.43574px 0px, rgb(0, 0, 0) 2.83468px -2.82216px 0px, rgb(0, 0, 0) 3.44477px -2.03312px 0px, rgb(0, 0, 0) 3.84068px -1.11766px 0px, rgb(0, 0, 0) 3.9978px -0.132717px 0px;}
 
 #container{
 	
@@ -27,11 +36,16 @@ body{
 #top{
 	
 	text-align: center;
-	margin-top: 20px;
+	//margin-top: 20px;
 	
 	height: 83px;
 	
+	background-color: #404040;
+	
 	border-bottom: 2px solid #202020;
+	border-top: 20px solid #404040;
+	border-radius: 40px 40px 0px 0px;
+	
 	
 }
 
@@ -44,21 +58,28 @@ body{
 input[type=button]{
 	
 	border: 0px none black;
-	border-right: 2px solid #202020;
+	border-right: 1px solid #202020;
+	border-left: 1px solid #202020;
 	border-bottom: 2px solid #202020;
 	padding: 0px;
 	float: left;
 	
-	width: 150px;
+	width: 300px;
 	height: 50px;
 	
 	background-color: #404040;
 	
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+	
+	font-size: 14px;
 }
 
 input[type=button]:hover{
 	
 	cursor: pointer;
+	
+	background-color: #606060;
 	
 }
 
@@ -67,10 +88,117 @@ input[type=button]:focus{
 	outline: 0px none black;
 }
 
-#Camera,#Stats,#Vars,#ProgrammingStuff{
+#Camera,#Stats,#Vars,#Autonomus{
 	
 	border-radius: 0px 0px 40px 40px;
 	height: 600px;
 	
 	
+}
+
+#kamera{
+	
+	margin-left: 280px;
+	width:640px;
+	height: 480px;
+	background-color: black;
+	position:absolute;
+	top:50px;
+	border: 10px solid purple;
+	
+}
+
+#tuning{
+	
+	width: 198px;
+	height: 600px;
+	border-right: 2px solid #202020;
+	
+	overflow:auto;
+	border-radius: 0px 0px 0px 40px;
+	float: left; 
+}
+
+#field{
+	
+	width: 1000px;
+	height: 600px;
+	
+	float: left;
+	
+}
+
+.group{
+	
+	border-bottom: 2px solid #202020;
+	font-size: 48px;
+	padding-left: 25px;
+}
+
+.indicator{
+	
+	//padding-top: 5px;
+	font-size: 24px;
+	//padding-bottom: 5px;
+	
+}
+
+.indicatorName{
+	border-left: 25px solid #404040;
+	//border-top: 9px solid #404040;
+	width: 250px;
+	height: 36px;
+	float:left;
+	padding-top:5px;
+}
+
+.indicatorValue{
+	
+	width: 146px;
+	height: 36px;
+	float:left;
+	border-left: 2px solid #202020;
+	border-right: 2px solid #202020;
+	text-align: center;
+	padding-top:5px;
+}
+
+.indicatorChart{
+	
+	width: 750px;
+	height: 36px;
+	float:left;
+	padding-top:5px;
+}
+
+.box{
+	
+	width: 180px;
+	height: 55px; 
+	
+	border-bottom: 2px solid #202020;
+	background-color: #404040; 
+}
+
+.element{
+	
+	padding-left: 5px;
+	padding-top: 15px;
+	//margin-top: 10px;
+	
+	width: 175px;
+	height: 40px;
+	
+	background-color: ;
+	
+	//font-weight: bold;
+}
+
+.var{
+	
+	width: 180px;
+	height: 45px;
+	padding-top: 12px;
+	
+	display: none;
 }

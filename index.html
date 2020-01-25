@@ -1,57 +1,136 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
+	<title> Robot 2020 </title>
 	<link rel="stylesheet" href="style/style.css" type="text/css" />
+	<meta charset="UTF-8">
 	
-<script src="js/jquery-3.3.1.js"></script>
-<script>
-
-</script>
-
 </head>
-<body onload="">
+<body onload="onLoad()">
 	
 	<div id="container">
 		
 		<div id="top">
+			<div style="margin-left:100px; width:100px; float:left; text-align: center; font-size: 48px;">
+				<span id="timer" class="shadow">0:00</span> <!--Timer-->
+			</div>
 			
-			<span style="font-size: 48px; color: white;">Robot Name 101</span>
+			<div style="width:800px; float:left;">
 			
+				<span class="shadow" style="font-size: 48px;">The Butcher</span>			<!--Nazwa Robota-->
+			
+			</div>
+			<div id="robotStatus" style="margin-left: 115px; width:52px; height: 52px; border-radius: 52px; border: 4px solid #202020; float: left; background-color: purple;"></div>
 		</div>
 		
-		<div id="middle">
+		<div id="middle"> <!--Guziki-->
 			
 			<input type="button" value="Camera" id="bCamera"/>
 			<input type="button" value="Stats" id="bStats"/>
 			<input type="button" value="Vars" id="bVars"/>
-			<input type="button" value="Programming Stuff" id="bProgrammingStuff"/>
-			<div style="width:600px; border-bottom: 2px solid #202020;float:left;height:48px;"></div>
+			<input type="button" value="Autonomus" id="bAutonomus"/>
 			
 		</div>
 	
 		
-		<div id="Camera" style="background-color: red;">
+		<div id="Camera" style="position: relative;"> <!--Camera-->
 			
-			<span style="text-align:center;font-size:120px;">Div od Kamery</span>
-			
-		</div>
-		
-		<div id="Stats" style="background-color: blue;">
-			
-			<span style="text-align:center;font-size:120px;">Div od Statystyk</span>
+			<div id="kamera">
+				
+				<!-- <img style="-webkit-user-select: none;" src="http://10.58.83.11:5800" width="640" height="480"> <!--LimeLight-->  -->
+				
+			</div>
 			
 		</div>
 		
-		<div id="Vars" style="background-color: grey;">
+		<div id="Stats">			<!-- Wskaźniki  -->
 			
-			<!-- <span style="text-align:center;font-size:120px;">Div od Zmiennych</span> -->
+			<div class="group"><span>Drive Train</span></div>
+			<div class="group"> 
+				
+				<div class="indicator">
+					<div class="indicatorName"><span>Left Motor</span></div>
+					<div class="indicatorValue"><span id="driveLMotorValue"></span></div>
+					<div class="indicatorChart">
+						
+						<canvas id="driveLMotorIndicator" width=800 height=36></canvas>
+						
+					</div>
+				</div>
+				<div class="indicator">
+					<div class="indicatorName"><span>Right Motor</span></div>
+					<div class="indicatorValue"><span id="driveRMotorValue"></div>
+					<div class="indicatorChart">
+						
+						<canvas id="driveRMotorIndicator" width=800 height=36></canvas>
+						
+					</div>	
+				</div>
+				
+				<div style="clear:both"></div>
+			</div>
+			
+			
+			<div class="group"><span>Intake</span></div>
+			<div class="group"> 
+				
+				<div class="indicator">
+					<div class="indicatorName"><span>Left Motor</span></div>
+					<div class="indicatorValue"><span id="intakeMotorValue">135</span></div>
+					<div class="indicatorChart">
+						
+						<canvas id="intakeMotorIndicator" width=800 height=36></canvas>
+						
+					</div>
+				</div>
+				
+				<div style="clear:both"></div>
+			</div>
+			
+			
+			<div class="group"><span>Shooter</span></div>
+			<div class="group"> 
+				
+				<div class="indicator">
+					<div class="indicatorName"><span>Left Motor</span></div>
+					<div class="indicatorValue"><span id="shoorLMotorValue">135</span></div>
+					<div class="indicatorChart">
+						
+						<canvas id="shootLMotorIndicator" width=800 height=36></canvas>
+						
+					</div>
+				</div>
+
+				<div class="indicator">
+					<div class="indicatorName"><span>Left Motor</span></div>
+					<div class="indicatorValue"><span id="shoorRMotorValue">135</span></div>
+					<div class="indicatorChart">
+						
+						<canvas id="shootRMotorIndicator" width=800 height=36></canvas>
+						
+					</div>
+				</div>
+				
+				<div style="clear:both"></div>
+			</div>
+			
 			
 		</div>
 		
-		<div id="ProgrammingStuff" style="background-color: purple;">
+		<div id="Vars">					<!-- Zmienne -->
 			
-			<span style="text-align:center;font-size:120px;">Div od Programistycznych coś tam</span>
+			<div id="tuning"></div>		<!-- Miejsce na zmienne -->
+			
+			<div id="field"></div>		<!-- Miejsce na kopie zmiennych -->
+			
+		</div>
+		
+		<div id="Autonomus">			<!--Automatyka-->
+			
+			<img src="style/cat1.jpg" width=600 height=300 style="float:left;">
+			<img src="style/cat2.png" width=600 height=300 style="float:left;">
+			<img src="style/cat3.jpg" width=600 height=300 style="float:left; border-radius: 0px 0px 0px 40px;">
+			<img src="style/cat4.jpeg" width=600 height=300 style="float:left; border-radius: 0px 0px 40px 0px;">
 			
 		</div>
 		
@@ -60,6 +139,9 @@
 	
 	
 </body>
+
+<script src="js/jquery-3.3.1.js"></script>
+<script src="networktables/networktables.js"></script>
 <script src="js/display.js"></script>
-<script stc="js/ui.js"></script>
+<script src="js/ui.js"></script>
 </html>
