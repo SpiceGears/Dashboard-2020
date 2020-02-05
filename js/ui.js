@@ -8,15 +8,19 @@ var ui = {
 	
 	timer: document.getElementById('timer'),
 	
+	gyroValue: document.getElementById('gyroValue'),
+	
+	robotGyro: document.getElementById('gyroArm'),
+	
 	stats: {
 	
 		driveLMotor: document.getElementById('driveLMotorIndicator').getContext("2d"),
 		
-		driveLMotorValue: document.getElementById('lMotorValue'),
+		driveLMotorValue: document.getElementById('driveLMotorValue'),
 		
 		driveRMotor: document.getElementById('driveRMotorIndicator').getContext("2d"),
 		
-		driveRMotorValue: document.getElementById('rMotorValue'),
+		driveRMotorValue: document.getElementById('driveRMotorValue'),
 		
 		intakeMotor: document.getElementById('intakeMotorIndicator').getContext("2d"),
 		
@@ -95,18 +99,34 @@ function onValueChanged(key,value,isNew) {
 			else ui.timer.style.color = "white";
 			break;
 		
-		case '/SmartDashboard/LeftEncoder': //Pobierane timera
+		case '/SmartDashboard/LMVO': //Pobierane timera
 			
-			drivLMotorValue = value;
-			chart(driveLMotor,value*300);
+			ui.stats.driveLMotorValue.innerHTML = parseFloat(parseInt(-value*100))/100;
+			chart(ui.stats.driveLMotor,-value*300);
 			break;
 			
-		case '/SmartDashboard/LeftEncoderV': //Pobierane timera
+		case '/SmartDashboard/RMVO': //Pobierane timera
 			
-			drivRMotorValue = value;
-			chart(driveRMotor,value*300);
+			ui.stats.driveRMotorValue.innerHTML = parseFloat(parseInt(value*100))/100;
+			chart(ui.stats.driveRMotor,value*300);
 			break;
+		
+		case '/SmartDashboard/gyroAngle':
 			
+			var visibleAngle = Math.round(value);
+			
+			if(value > 360) {
+				visibleAngle = visibleAngle - 360;
+			}else if( value < 0) {
+				VisiblaAnagale = visibleAngle + 360;
+			}
+			
+			ui.gyroValue.innerHTML = visibleAngle;
+			ui.robotGyro.style.transform = "rotate(" + -value + "deg)";
+			
+			console.log(value);
+			
+			break;	
 	}
 	
 	

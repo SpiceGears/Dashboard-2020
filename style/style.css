@@ -168,7 +168,8 @@ input[type=button]:focus{
 	width: 750px;
 	height: 36px;
 	float:left;
-	padding-top:5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
 }
 
 .box{
@@ -201,4 +202,10 @@ input[type=button]:focus{
 	padding-top: 12px;
 	
 	display: none;
+}
+
+svg *{
+    stroke: #202020;
+    fill: white;
+    stroke-width: 2;
 }

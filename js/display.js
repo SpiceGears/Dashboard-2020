@@ -81,11 +81,11 @@ $(document).ready(function(){
 
 function onLoad(){
 	
-	//chart(canvas.driveLMotor, 300); //Przykładowe wartości do wskaźników
-	//chart(canvas.driveRMotor, -300);
-	chart(canvas.intakeMotor, 135);
-	chart(canvas.shootLMotor, 270);
-	chart(canvas.shootRMotor, 260);
+	chart(canvas.driveLMotor, 0); //Przykładowe wartości do wskaźników
+	chart(canvas.driveRMotor, 0);
+	chart(canvas.intakeMotor, 0);
+	chart(canvas.shootLMotor, 0);
+	chart(canvas.shootRMotor, 0);
 }
 
 function canvasTranslate(){			//Transfer położenia punktu (0.0) na środek wskaźnika
@@ -102,8 +102,8 @@ function chart(ctx, x){ //Rysowanie wartości wskaźników
 	
 	if(x > canvas.width) x = canvas.width;			//sprawdzenie czy wartość nie wychodzi poza wartosć (gdyby mapowanie poszło źle)
 	
-	ctx.fillStyle = "#404040"						//dopasowanie tła wskaźnika
-	ctx.fillRect(-canvas.width,0,canvas.width*2,30)	//narysowanie tła, głównie w celu odświerzenia przed ponownym narysowaniem
+	ctx.fillStyle = "#404040";						//dopasowanie tła wskaźnika
+	ctx.fillRect(-canvas.width,0,canvas.width*2,30);//narysowanie tła, głównie w celu odświerzenia przed ponownym narysowaniem
 	
 	var grd = ctx.createRadialGradient(0,15,1,0,15,canvas.width*1);	//przejście z jednego koloru na drugie (x1, y1, r1, x2, y2, r2) - Fukncja ta wyznacza 2 koła z przejściem w kolorach między nimi
 	grd.addColorStop(0,'#49879F');					//Kolor 1
@@ -111,6 +111,11 @@ function chart(ctx, x){ //Rysowanie wartości wskaźników
 	
 	ctx.fillStyle = grd;							//Nadanie prostokątowi (wskaźnikowi) kolorów przejścia
 	ctx.fillRect(0,0,x,30);							//Narysowanie wskaźnika
+	
+	
+	ctx.fillStyle = "black";
+	ctx.fillRect(-1,0,2,30);
+	
 	
 	ctx.lineWidth = 3;									//Grubość linii 
 	ctx.strokeRect(-canvas.width,0,canvas.width*2,30)	//Obramówka do wskaźnika

@@ -50,7 +50,7 @@
 				
 				<div class="indicator">
 					<div class="indicatorName"><span>Left Motor</span></div>
-					<div class="indicatorValue"><span id="driveLMotorValue"></span></div>
+					<div class="indicatorValue"><span id="driveLMotorValue">0</span></div>
 					<div class="indicatorChart">
 						
 						<canvas id="driveLMotorIndicator" width=800 height=36></canvas>
@@ -59,7 +59,7 @@
 				</div>
 				<div class="indicator">
 					<div class="indicatorName"><span>Right Motor</span></div>
-					<div class="indicatorValue"><span id="driveRMotorValue"></div>
+					<div class="indicatorValue"><span id="driveRMotorValue">0</div>
 					<div class="indicatorChart">
 						
 						<canvas id="driveRMotorIndicator" width=800 height=36></canvas>
@@ -76,7 +76,7 @@
 				
 				<div class="indicator">
 					<div class="indicatorName"><span>Left Motor</span></div>
-					<div class="indicatorValue"><span id="intakeMotorValue">135</span></div>
+					<div class="indicatorValue"><span id="intakeMotorValue">0</span></div>
 					<div class="indicatorChart">
 						
 						<canvas id="intakeMotorIndicator" width=800 height=36></canvas>
@@ -93,7 +93,7 @@
 				
 				<div class="indicator">
 					<div class="indicatorName"><span>Left Motor</span></div>
-					<div class="indicatorValue"><span id="shoorLMotorValue">135</span></div>
+					<div class="indicatorValue"><span id="shoorLMotorValue">0</span></div>
 					<div class="indicatorChart">
 						
 						<canvas id="shootLMotorIndicator" width=800 height=36></canvas>
@@ -103,7 +103,7 @@
 
 				<div class="indicator">
 					<div class="indicatorName"><span>Left Motor</span></div>
-					<div class="indicatorValue"><span id="shoorRMotorValue">135</span></div>
+					<div class="indicatorValue"><span id="shoorRMotorValue">0</span></div>
 					<div class="indicatorChart">
 						
 						<canvas id="shootRMotorIndicator" width=800 height=36></canvas>
@@ -127,10 +127,45 @@
 		
 		<div id="Autonomus">			<!--Automatyka-->
 			
-			<img src="style/cat1.jpg" width=600 height=300 style="float:left;">
-			<img src="style/cat2.png" width=600 height=300 style="float:left;">
-			<img src="style/cat3.jpg" width=600 height=300 style="float:left; border-radius: 0px 0px 0px 40px;">
-			<img src="style/cat4.jpeg" width=600 height=300 style="float:left; border-radius: 0px 0px 40px 0px;">
+			<!-- <img src="style/cat1.jpg" width=600 height=300 style="float:left;"> -->
+			<!-- <img src="style/cat2.png" width=600 height=300 style="float:left;"> -->
+			<!-- <img src="style/cat3.jpg" width=600 height=300 style="float:left; border-radius: 0px 0px 0px 40px;"> -->
+			<!-- <img src="style/cat4.jpeg" width=600 height=300 style="float:left; border-radius: 0px 0px 40px 0px;"> -->
+			
+			<svg width="200" height="200" >
+					<g transform="matrix(1 0 0 -1 100 100)" >
+						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(0)" />
+						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(-90 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(90 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(180 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(45 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-135 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-45 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(135 2 -60)" />
+						
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-67.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-22.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(22.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(67.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(112.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-112.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-157.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(157.5 2 -60)" />
+						
+						<g id="gyroArm" transform="rotate(0)">
+						<rect x="-10" y="0" rx="30" ry="10" width="20" height="70" style="fill: blue;" />
+						<rect x="-10" y="-70" width="20" rx="30" ry="10" height="70" style="fill: red;" />
+						<circle cx="0" cy="0" r="18" stroke="black" style="fill: white;" />
+						</g>	
+						
+					</g>
+					
+					<text id="gyroValue" x="101" y="104" text-anchor="middle">0</text>
+
+					<!-- <text id="gyro-value" x="101" y="104" text-anchor="middle">90</text> -->
+
+					
+					</svg>
 			
 		</div>
 		
