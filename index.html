@@ -71,23 +71,6 @@
 			</div>
 			
 			
-			<div class="group"><span>Intake</span></div>
-			<div class="group"> 
-				
-				<div class="indicator">
-					<div class="indicatorName"><span>Left Motor</span></div>
-					<div class="indicatorValue"><span id="intakeMotorValue">0</span></div>
-					<div class="indicatorChart">
-						
-						<canvas id="intakeMotorIndicator" width=800 height=36></canvas>
-						
-					</div>
-				</div>
-				
-				<div style="clear:both"></div>
-			</div>
-			
-			
 			<div class="group"><span>Shooter</span></div>
 			<div class="group"> 
 				
@@ -102,7 +85,7 @@
 				</div>
 
 				<div class="indicator">
-					<div class="indicatorName"><span>Left Motor</span></div>
+					<div class="indicatorName"><span>Right Motor</span></div>
 					<div class="indicatorValue"><span id="shoorRMotorValue">0</span></div>
 					<div class="indicatorChart">
 						
@@ -113,8 +96,53 @@
 				
 				<div style="clear:both"></div>
 			</div>
-			
-			
+			<div style="float:left; padding-left: 266.66px;">
+				<svg width="200" height="200" >
+					<g transform="matrix(1 0 0 -1 100 100)" >
+						<rect x="0"  y="0"  width="4" height="30"  transform="translate(-2 60) rotate(0)" />
+						<rect x="0"  y="0"  width="4" height="30"  transform="translate(-2 60) rotate(-90 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="30"  transform="translate(-2 60) rotate(90 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="30"  transform="translate(-2 60) rotate(180 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform="translate(-2 60) rotate(45 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform="translate(-2 60) rotate(-135 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform="translate(-2 60) rotate(-45 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform="translate(-2 60) rotate(135 2 -60)" />
+						
+						<rect x="0"  y="0"  width="4" height="20"  transform="translate(-2 60) rotate(-67.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform="translate(-2 60) rotate(-22.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform="translate(-2 60) rotate(22.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform="translate(-2 60) rotate(67.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform="translate(-2 60) rotate(112.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform="translate(-2 60) rotate(-112.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform="translate(-2 60) rotate(-157.5 2 -60)" />
+						<rect x="0"  y="0"  width="4" height="20"  transform="translate(-2 60) rotate(157.5 2 -60)" />
+						
+						<g id="gyroArm" transform="rotate(0)">
+						<rect x="-10" y="0" rx="30" ry="10" width="20" height="70" style="fill: blue;" />
+						<rect x="-10" y="-70" width="20" rx="30" ry="10" height="70" style="fill: red;" />
+						<circle cx="0" cy="0" r="18" stroke="black" style="fill: white;" />
+						</g>	
+						
+					</g>
+					
+				<text id="gyroValue" x="100" y="104" text-anchor="middle">0</text>
+				
+				</svg>
+			</div>
+			<div style="float:left; padding-left:266.66px;">
+				<svg width=200 height=200>
+					
+					<circle id="potCircle" cx=100 cy=100 r=90 style="fill:#78179b" />
+					
+					<rect id="potArrow" x=-2 y=-2 width=85 height=4 transform=" translate(100 100) rotate(-240)"/>
+					
+					<rect x="55" y="169.62177826491071" width=90 height=28 style="fill:white;" />
+					
+					<text id="potValue" x="100" y="191" text-anchor="middle" style="fill:#202020; font-size: 20px;">0</text>
+					
+					
+				</svg>
+			</div>
 		</div>
 		
 		<div id="Vars">					<!-- Zmienne -->
@@ -125,47 +153,63 @@
 			
 		</div>
 		
-		<div id="Autonomus">			<!--Automatyka-->
+		<div id="Autonomus" style="position: relative;">			<!--Automatyka-->
 			
 			<!-- <img src="style/cat1.jpg" width=600 height=300 style="float:left;"> -->
 			<!-- <img src="style/cat2.png" width=600 height=300 style="float:left;"> -->
 			<!-- <img src="style/cat3.jpg" width=600 height=300 style="float:left; border-radius: 0px 0px 0px 40px;"> -->
 			<!-- <img src="style/cat4.jpeg" width=600 height=300 style="float:left; border-radius: 0px 0px 40px 0px;"> -->
 			
-			<svg width="200" height="200" >
-					<g transform="matrix(1 0 0 -1 100 100)" >
-						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(0)" />
-						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(-90 2 -60)" />
-						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(90 2 -60)" />
-						<rect x="0"  y="0"  width="4" height="30"  transform=" translate(-2 60) rotate(180 2 -60)" />
-						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(45 2 -60)" />
-						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-135 2 -60)" />
-						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-45 2 -60)" />
-						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(135 2 -60)" />
-						
-						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-67.5 2 -60)" />
-						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-22.5 2 -60)" />
-						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(22.5 2 -60)" />
-						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(67.5 2 -60)" />
-						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(112.5 2 -60)" />
-						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-112.5 2 -60)" />
-						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(-157.5 2 -60)" />
-						<rect x="0"  y="0"  width="4" height="20"  transform=" translate(-2 60) rotate(157.5 2 -60)" />
-						
-						<g id="gyroArm" transform="rotate(0)">
-						<rect x="-10" y="0" rx="30" ry="10" width="20" height="70" style="fill: blue;" />
-						<rect x="-10" y="-70" width="20" rx="30" ry="10" height="70" style="fill: red;" />
-						<circle cx="0" cy="0" r="18" stroke="black" style="fill: white;" />
-						</g>	
-						
-					</g>
+			<div style="position:absolute; top:50px; left:50px; width:1101px; height: 100px; border: 2px solid #202020;">
+				
+				<div class="auto">
 					
-					<text id="gyroValue" x="101" y="104" text-anchor="middle">0</text>
-
-					<!-- <text id="gyro-value" x="101" y="104" text-anchor="middle">90</text> -->
-
+					<div style="width:100%; height:calc(50% - 2px); border-bottom: 2px solid #202020;">
+						<center class="shadow" style="font-size:32px; padding-top:10px;">
+							Left
+						</center>
+					</div>
+					<select id="selectLeft" style="width:100%; height:calc(50% - 1px); font-size: 16px;">
+						
+						<!-- <option>1</option> -->
+						<!-- <option>2</option> -->
+						
+					</select>
 					
-					</svg>
+					
+				</div>
+				
+				<div class="auto">
+					
+					<div style="width:100%; height:calc(50% - 2px); border-bottom: 2px solid #202020;">
+						<center class="shadow" style="font-size:32px; padding-top:10px;">
+							Middle
+						</center>
+					</div>
+					<select id="selectMiddle" style="width:100%; height:calc(50% - 1px); font-size: 16px;">
+						
+						<!-- <option>Hola, me llamo nikt</option> -->
+						
+					</select>
+					
+				</div>
+				
+				<div class="auto">
+					
+					<div style="width:100%; height:calc(50% - 2px); border-bottom: 2px solid #202020;">
+						<center class="shadow" style="font-size:32px; padding-top:10px;">
+							Right
+						</center>
+					</div>
+					<select id="selectRight" style="width:100%; height:calc(50% - 1px); font-size: 16px;">
+						
+						<!-- <option>IDK</option> -->
+						
+					</select>
+					
+				</div>
+				
+			</div>
 			
 		</div>
 		
@@ -177,6 +221,7 @@
 
 <script src="js/jquery-3.3.1.js"></script>
 <script src="networktables/networktables.js"></script>
-<script src="js/display.js"></script>
+<script src="js/js.js"></script>
 <script src="js/ui.js"></script>
+<script src="js/autonomus.js"></script>
 </html>

@@ -209,3 +209,18 @@ svg *{
     fill: white;
     stroke-width: 2;
 }
+
+.auto{
+	
+	width:calc((100%/3) - 2px);
+	height: 100%;
+	border: 1px solid #202020;
+	
+	float: left;
+}
+
+select{
+	
+	border-color: #202020;
+	
+}

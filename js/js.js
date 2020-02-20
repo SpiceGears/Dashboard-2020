@@ -22,15 +22,7 @@ var canvas ={ //zapisywanie drogi do poszczególnych wskaźników
 	
 	driveLMotor: document.getElementById('driveLMotorIndicator').getContext("2d"),
 	
-	//lMotorValue: parseFloat(document.getElementById('lMotorValue').value),
-	
 	driveRMotor: document.getElementById('driveRMotorIndicator').getContext("2d"),
-	
-	//rMotorValue: parseFloat(document.getElementById('rMotorValue').value),
-	
-	intakeMotor: document.getElementById('intakeMotorIndicator').getContext("2d"),
-	
-	//intakeMotorValue: parseFloat(document.getElementById('intakeMotorValue').value),
 	
 	shootLMotor: document.getElementById('shootLMotorIndicator').getContext("2d"),
 	
@@ -81,9 +73,10 @@ $(document).ready(function(){
 
 function onLoad(){
 	
+	//canvasTranslate();
+
 	chart(canvas.driveLMotor, 0); //Przykładowe wartości do wskaźników
 	chart(canvas.driveRMotor, 0);
-	chart(canvas.intakeMotor, 0);
 	chart(canvas.shootLMotor, 0);
 	chart(canvas.shootRMotor, 0);
 }
@@ -92,7 +85,6 @@ function canvasTranslate(){			//Transfer położenia punktu (0.0) na środek wsk
 	
 	canvas.driveLMotor.translate(400,3); // Canvas ma długosć 400px, ale używane set jedynie 300px
 	canvas.driveRMotor.translate(400,3);
-	canvas.intakeMotor.translate(400,3);
 	canvas.shootLMotor.translate(400,3);
 	canvas.shootRMotor.translate(400,3);
 	
@@ -101,7 +93,8 @@ function canvasTranslate(){			//Transfer położenia punktu (0.0) na środek wsk
 function chart(ctx, x){ //Rysowanie wartości wskaźników
 	
 	if(x > canvas.width) x = canvas.width;			//sprawdzenie czy wartość nie wychodzi poza wartosć (gdyby mapowanie poszło źle)
-	
+	else if(x < -canvas.width) x = -cansax.width;
+
 	ctx.fillStyle = "#404040";						//dopasowanie tła wskaźnika
 	ctx.fillRect(-canvas.width,0,canvas.width*2,30);//narysowanie tła, głównie w celu odświerzenia przed ponownym narysowaniem
 	
