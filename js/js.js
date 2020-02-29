@@ -12,7 +12,7 @@ var border = { //Zmienne guzików
 	
 	Vars: document.getElementById('bVars'),
 	
-	Autonomus: document.getElementById('bAutonomus'),
+	Autonomous: document.getElementById('bAutonomous'),
 	
 }
 
@@ -38,33 +38,33 @@ $(document).ready(function(){
   showdiv(1);				//pokazanie pierwszego diva po odpaleniu strony
   $("#Stats").slideUp(0);
   $("#Vars").slideUp(0);
-  $("#Autonomus").slideUp(0); //animacja przechodzenia między kartami
+  $("#Autonomous").slideUp(0); //animacja przechodzenia między kartami
   $("#bCamera").click(function(){
 	$("#Stats").slideUp(350);
 	$("#Vars").slideUp(300);
-	$("#Autonomus").slideUp(300);
+	$("#Autonomous").slideUp(300);
     $("#Camera").delay(300).slideDown(300);
 	showdiv(1);
   });
   $("#bStats").click(function(){
     $("#Camera").slideUp(300);
 	$("#Vars").slideUp(300);
-	$("#Autonomus").slideUp(300);
+	$("#Autonomous").slideUp(300);
 	$("#Stats").delay(300).slideDown(300);
 	showdiv(2);
   });
   $("#bVars").click(function(){
     $("#Camera").slideUp(300);
 	$("#Stats").slideUp(300);
-	$("#Autonomus").slideUp(300);
+	$("#Autonomous").slideUp(300);
 	$("#Vars").delay(300).slideDown(300);
 	showdiv(3);
   });
-  $("#bAutonomus").click(function(){
+  $("#bAutonomous").click(function(){
     $("#Camera").slideUp(300);
 	$("#Stats").slideUp(300);
 	$("#Vars").slideUp(300);
-	$("#Autonomus").delay(300).slideDown(300);
+	$("#Autonomous").delay(300).slideDown(300);
 	showdiv(4);
   });
 });
@@ -195,7 +195,7 @@ function showdiv(a){ //Zmiana border-bottom, aby ładnie wyglądało
 			border.Vars.style.borderBottomColor = "#404040";
 			break;
 		case 4:
-			border.Autonomus.style.borderBottomColor = "#404040";
+			border.Autonomous.style.borderBottomColor = "#404040";
 			break;
 	}
 	
@@ -206,7 +206,7 @@ function hidediv(){ //Pokazanie każdego border-bottom
 	border.Camera.style.borderBottomColor = "#202020";
 	border.Stats.style.borderBottomColor = "#202020";
 	border.Vars.style.borderBottomColor = "#202020";
-	border.Autonomus.style.borderBottomColor = "#202020";
+	border.Autonomous.style.borderBottomColor = "#202020";
 	
 }
 

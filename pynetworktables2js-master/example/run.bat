@@ -1,3 +1,3 @@
-python tornado_server.py --robot roborio-5883-FRC.local
+python tornado_server.py --robot 10.58.83.2
 
 pause

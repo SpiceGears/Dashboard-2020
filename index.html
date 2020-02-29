@@ -28,7 +28,7 @@
 			<input type="button" value="Camera" id="bCamera"/>
 			<input type="button" value="Stats" id="bStats"/>
 			<input type="button" value="Vars" id="bVars"/>
-			<input type="button" value="Autonomus" id="bAutonomus"/>
+			<input type="button" value="Autonomous" id="bAutonomous"/>
 			
 		</div>
 	
@@ -37,7 +37,7 @@
 			
 			<div id="kamera">
 				
-				<!-- <img style="-webkit-user-select: none;" src="http://10.58.83.11:5800" width="640" height="480"> <!--LimeLight-->  -->
+				<img style="-webkit-user-select: none;" src="http://10.58.83.11:5800" width="640" height="480"> <!--LimeLight--> 
 				
 			</div>
 			
@@ -76,7 +76,7 @@
 				
 				<div class="indicator">
 					<div class="indicatorName"><span>Left Motor</span></div>
-					<div class="indicatorValue"><span id="shoorLMotorValue">0</span></div>
+					<div class="indicatorValue"><span id="shootLMotorValue">0</span></div>
 					<div class="indicatorChart">
 						
 						<canvas id="shootLMotorIndicator" width=800 height=36></canvas>
@@ -86,7 +86,7 @@
 
 				<div class="indicator">
 					<div class="indicatorName"><span>Right Motor</span></div>
-					<div class="indicatorValue"><span id="shoorRMotorValue">0</span></div>
+					<div class="indicatorValue"><span id="shootRMotorValue">0</span></div>
 					<div class="indicatorChart">
 						
 						<canvas id="shootRMotorIndicator" width=800 height=36></canvas>
@@ -133,9 +133,9 @@
 				<svg width=200 height=200>
 					
 					<circle id="potCircle" cx=100 cy=100 r=90 style="fill:#78179b" />
-					
-					<rect id="potArrow" x=-2 y=-2 width=85 height=4 transform=" translate(100 100) rotate(-240)"/>
-					
+					<g transform="translate(100 100)">
+					<rect id="potArrow" x=-2 y=-2 width=85 height=4 transform="rotate(-240)"/>
+					</g>		
 					<rect x="55" y="169.62177826491071" width=90 height=28 style="fill:white;" />
 					
 					<text id="potValue" x="100" y="191" text-anchor="middle" style="fill:#202020; font-size: 20px;">0</text>
@@ -153,7 +153,7 @@
 			
 		</div>
 		
-		<div id="Autonomus" style="position: relative;">			<!--Automatyka-->
+		<div id="Autonomous" style="position: relative;">			<!--Automatyka-->
 			
 			<!-- <img src="style/cat1.jpg" width=600 height=300 style="float:left;"> -->
 			<!-- <img src="style/cat2.png" width=600 height=300 style="float:left;"> -->
@@ -223,5 +223,5 @@
 <script src="networktables/networktables.js"></script>
 <script src="js/js.js"></script>
 <script src="js/ui.js"></script>
-<script src="js/autonomus.js"></script>
+<script src="js/autonomous.js"></script>
 </html>

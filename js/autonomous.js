@@ -17,13 +17,21 @@ function clear(){
 	
 }
 
+function put(s){
+	
+	console.log(s.value);
+	
+	NetworkTables.setValue("/SmartDashboard/AutoSelector", s.value);
+	
+}
+
 selectLeft.onclick = function(){
 	
 	clear();
 	
 	autonomus.left.style.backgroundColor = "#a0a0a0";
 	
-	NetworkTables.putValue(autonomus.left.value, autonomus.left.value);
+	put(autonomus.left);	
 	
 };
 
@@ -33,7 +41,7 @@ selectMiddle.onclick = function(){
 	
 	autonomus.middle.style.backgroundColor = "#a0a0a0";
 	
-	NetworkTables.putValue(autonomus.middle.value, autonomus.middle.value);
+	put(autonomus.middle);
 	
 };
 
@@ -43,7 +51,7 @@ selectRight.onclick = function(){
 	
 	autonomus.right.style.backgroundColor = "#a0a0a0";
 	
-	NetworkTables.putValue(autonomus.right.value, autonomus.right.value);
+	put(autonomus.right);
 	
 };
 

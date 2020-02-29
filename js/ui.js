@@ -24,11 +24,11 @@ var ui = {
 		
 		shootLMotor: document.getElementById('shootLMotorIndicator').getContext("2d"),
 		
-		shootLMotorValue: document.getElementById('shootLMotorIndicator'),
+		shootLMotorValue: document.getElementById('shootLMotorValue'),
 		
 		shootRMotor: document.getElementById('shootRMotorIndicator').getContext("2d"),
 		
-		shootRMotorValue: document.getElementById('shootRMotorIndicator'),
+		shootRMotorValue: document.getElementById('shootRMotorValue'),
 		
 		potValue: document.getElementById('potValue'),
 		
@@ -111,31 +111,31 @@ function onValueChanged(key,value,isNew) {
 			else ui.timer.style.color = "white";
 			break;
 		
-		case '/SmartDashboard/LMVO': //Left Drive Motor
+		case '/SmartDashboard/driveTrain_LeftMPS': //Left Drive Motor
 			
-			ui.stats.driveLMotorValue.innerHTML = parseFloat(parseInt(-value*100))/400;
-			chart(ui.stats.driveLMotor,-value*300/4);
+			ui.stats.driveLMotorValue.innerHTML = parseFloat(parseInt(value*100))/400;
+			chart(ui.stats.driveLMotor,value*300/4);
 			break;
 			
-		case '/SmartDashboard/RMVO': //Right Drive Motor
+		case '/SmartDashboard/driveTrain_RightMPS': //Right Drive Motor
 			
 			ui.stats.driveRMotorValue.innerHTML = parseFloat(parseInt(value*100))/400;
 			chart(ui.stats.driveRMotor,value*300/4);
 			break;
 			
-		case '/SmartDashboard/leftMotorSHR': //Right Drive Motor
+		case '/SmartDashboard/shooter_LeftRPS': //Right Drive Motor
 			
-			ui.stats.shootLMotorValue.innerHTML = parseFloat(parseInt(value*100))/400;
-			chart(ui.stats.shootLMotorMotor,value*300/4);
+			ui.stats.shootLMotorValue.innerHTML = parseFloat(parseInt(value*100))/100;
+			chart(ui.stats.shootLMotor,value*3);
 			break;
 			
-		case '/SmartDashboard/rightMotorSHR': //Right Drive Motor
+		case '/SmartDashboard/shooter_RightRPS': //Right Drive Motor
 			
-			ui.stats.shootRMotorValue.innerHTML = parseFloat(parseInt(value*100))/400;
-			chart(ui.stats.shootRMotor,value*300/4);
+			ui.stats.shootRMotorValue.innerHTML = parseFloat(parseInt(value*100))/100;
+			chart(ui.stats.shootRMotor,value*3);	
 			break;
 		
-		case '/SmartDashboard/gyroAngle':
+		case '/SmartDashboard/driveTrain_gyroAngle':
 			
 			var visibleAngle = Math.round(value);
 			
@@ -152,13 +152,35 @@ function onValueChanged(key,value,isNew) {
 			
 			break;
 		
-		case '/SmartDashboard/potenciometer':
+		case '/SmartDashboard/aiming_ActualPosition':
 			
-			ui.stats.potArrow.style.transform = "rotate(" + value*40/300 + "deg)";
+			ui.stats.potArrow.style.transform = "rotate(" + -240 + value*3 + "deg)";
 			
-			ui.stats.potValue.innerHTML = value*40/300;
+			ui.stats.potValue.innerHTML = parseInt(value*3);
 			
 			break;
+			
+		case '/SmartDashboard/AutoChoices/options':
+			
+
+			
+			while (ui.autonomus.left.firstChild) {
+				ui.autonomus.left.removeChild(ui.autonomus.left.firstChild);
+			}
+			
+			for (i = 0; i < value.length; i++) {
+				var option = document.createElement('option');
+				option.innerHTML = value[i];
+				ui.autonomus.left.appendChild(option);
+			}
+			
+			ui.autonomus.left.value = NetworkTables.getValue('/SmartDashboard/AutoChoices/Deault_Auto');
+			
+			console.log(NetworkTables.getValue('/SmartDashboard/AutoChoices/Deault_Auto'));
+			
+			break;
+		
+		
 	}
 	
 	
@@ -168,20 +190,7 @@ function onValueChanged(key,value,isNew) {
 			ui.camera.limelight = "10px solid red"
 		} else if(key.substring(0,16) != "/SmartDashboard/" /*|| key.substring(0,25) == "/SmartDashboard/limelight"*/) {
 			//filtrowanie śmieci
-			console.log("limelight wysyła dane");
-		}else if(key.substring(0,17) === "/SmartDashboard/L" || key.substring(0,17) === "/SmartDashboard/M" || key.substring(0,17) === "/SmartDashboard/R"){
-			
-			key = key.slice(16);
-			
-			var option = createElement('option')
-			option.appendChild( document.createTextNode('New Option Text'));
-			
-			option.value = key; 
-			
-			if(key.substring(0,1) === "L") 		ui.autonomus.left.appendChild(option);
-			else if(key.substring(0,1) === "M") ui.autonomus.middle.appendChild(option);
-			else if(key.substring(0,1) === "R") ui.autonomus.right.appendChild(option);
-			
+			//console.log("limelight wysyła dane");
 		} else {
 			
 			key = key.slice(16);
