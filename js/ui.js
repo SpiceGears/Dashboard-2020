@@ -115,27 +115,39 @@ function onValueChanged(key,value,isNew) {
 			
 			ui.stats.driveLMotorValue.innerHTML = parseFloat(parseInt(value*100))/400;
 			chart(ui.stats.driveLMotor,value*300/4);
+			
+			// console.log("Lewy drive: " + value);
+			
 			break;
 			
 		case '/SmartDashboard/driveTrain_RightMPS': //Right Drive Motor
 			
 			ui.stats.driveRMotorValue.innerHTML = parseFloat(parseInt(value*100))/400;
 			chart(ui.stats.driveRMotor,value*300/4);
+			
+			// console.log("Prawy drive: " + value);
+			
 			break;
 			
 		case '/SmartDashboard/shooter_LeftRPS': //Right Drive Motor
 			
 			ui.stats.shootLMotorValue.innerHTML = parseFloat(parseInt(value*100))/100;
 			chart(ui.stats.shootLMotor,value*3);
+			
+			// console.log("Lewy shoot: " + value)
+			
 			break;
 			
 		case '/SmartDashboard/shooter_RightRPS': //Right Drive Motor
 			
 			ui.stats.shootRMotorValue.innerHTML = parseFloat(parseInt(value*100))/100;
-			chart(ui.stats.shootRMotor,value*3);	
+			chart(ui.stats.shootRMotor,value*3);
+			
+			//console.log("Prawy shoot: " + value);
+			
 			break;
 		
-		case '/SmartDashboard/driveTrain_gyroAngle':
+		case '/SmartDashboard/driveTrain_GyroAngle':
 			
 			var visibleAngle = Math.round(value);
 			
@@ -148,21 +160,21 @@ function onValueChanged(key,value,isNew) {
 			ui.gyroValue.innerHTML = visibleAngle;
 			ui.robotGyro.style.transform = "rotate(" + -value + "deg)";
 			
-			//console.log(value);
+			// console.log("Gyro: " + value);
 			
 			break;
 		
 		case '/SmartDashboard/aiming_ActualPosition':
 			
-			ui.stats.potArrow.style.transform = "rotate(" + -240 + value*3 + "deg)";
+			ui.stats.potArrow.style.transform = "rotate(" +  ((value - 48)*45/14) + "deg)";
 			
-			ui.stats.potValue.innerHTML = parseInt(value*3);
+			ui.stats.potValue.innerHTML = parseInt(value);
+			
+			// console.log("Potenciometr: " + value);
 			
 			break;
 			
-		case '/SmartDashboard/AutoChoices/options':
-			
-
+		case '/SmartDashboard/SendableChooser[0]/options':
 			
 			while (ui.autonomus.left.firstChild) {
 				ui.autonomus.left.removeChild(ui.autonomus.left.firstChild);
@@ -174,9 +186,15 @@ function onValueChanged(key,value,isNew) {
 				ui.autonomus.left.appendChild(option);
 			}
 			
-			ui.autonomus.left.value = NetworkTables.getValue('/SmartDashboard/AutoChoices/Deault_Auto');
+			ui.autonomus.left.value = value[0];
 			
-			console.log(NetworkTables.getValue('/SmartDashboard/AutoChoices/Deault_Auto'));
+			NetworkTables.setValue("/SmartDashboard/AutoSelected", value[0]);
+			
+			// console.log("Poszło!");
+			
+			//console.log(NetworkTables.getValue('/SmartDashboard/AutoChoices/Deault_Auto'));
+			
+			ui.autonomus.left.style.backgroundColor = "#a0a0a0";
 			
 			break;
 		

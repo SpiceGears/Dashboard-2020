@@ -110,7 +110,7 @@ input[type=button]:focus{
 
 #tuning{
 	
-	width: 198px;
+	width: 248px;
 	height: 600px;
 	border-right: 2px solid #202020;
 	
@@ -121,7 +121,7 @@ input[type=button]:focus{
 
 #field{
 	
-	width: 1000px;
+	width: 950px;
 	height: 600px;
 	
 	float: left;
@@ -174,7 +174,7 @@ input[type=button]:focus{
 
 .box{
 	
-	width: 180px;
+	width: 230px;
 	height: 55px; 
 	
 	border-bottom: 2px solid #202020;
@@ -185,9 +185,8 @@ input[type=button]:focus{
 	
 	padding-left: 5px;
 	padding-top: 15px;
-	//margin-top: 10px;
 	
-	width: 175px;
+	width: 230px;
 	height: 40px;
 	
 	background-color: ;
@@ -197,7 +196,7 @@ input[type=button]:focus{
 
 .var{
 	
-	width: 180px;
+	width: 230px;
 	height: 45px;
 	padding-top: 12px;
 	

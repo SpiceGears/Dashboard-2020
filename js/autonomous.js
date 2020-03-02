@@ -19,9 +19,9 @@ function clear(){
 
 function put(s){
 	
-	console.log(s.value);
+	// console.log(s.value);
 	
-	NetworkTables.setValue("/SmartDashboard/AutoSelector", s.value);
+	NetworkTables.setValue("/SmartDashboard/AutoSelected", s.value);
 	
 }
 

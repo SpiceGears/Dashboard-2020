@@ -144,7 +144,7 @@ function copy(elem){
 	div1.style.margin = "0px";
 	div1.style.paddingLeft = "0px";
 	
-	div1.style.width = "180px";
+	//div1.style.width = "180px";
 	
 	box.appendChild(div1);								//Wsadzenie do pudła
 	
