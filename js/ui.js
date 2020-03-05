@@ -49,9 +49,11 @@ var ui = {
 		
 	},
 	
-	camera: {
-		target: document.getElementById('kamera'),
-	},
+	camera : document.getElementById('camera'),
+	
+	akumulator : document.getElementById('akumulatorVoltage'),
+	
+	akumulatorValue : document.getElementById('akumulatorVoltageValue'),
 };
 
 // Key Listeners
@@ -66,6 +68,8 @@ function onRobotConnection(connected) {
 	
 	if(connected) ui.robotState.style.background = "green";
 	else ui.robotState.style.background = "red";
+	
+	ui.camera.src = "http://10.58.83.11:5800";
 }
 
 //attachSelectToSendableChooser("autonomusList", "Autonomous Mode");
@@ -99,9 +103,9 @@ function onValueChanged(key,value,isNew) {
 		case '/SmartDashboard/tv':	//Pobieranie 'Czy robot widzi target'
 		
 			if(value == 1){
-				ui.camera.target.style.borderColor = 'green';
+				ui.camera.style.borderColor = 'green';
 			}else {
-				ui.camera.target.style.borderColor = 'red';
+				ui.camera.style.borderColor = 'red';
 			} break;
 		
 		case '/SmartDashboard/timer': //Pobierane timera
@@ -198,7 +202,13 @@ function onValueChanged(key,value,isNew) {
 			
 			break;
 		
-		
+		case '/SmartDashboard/akumulatorVoltage':
+			
+			ui.akumulator.height = value * 40 / 14;
+			
+			ui.akumulatorValue.innerHTML = value + V;
+			
+			break;
 	}
 	
 	

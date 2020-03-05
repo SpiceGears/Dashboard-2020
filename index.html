@@ -35,9 +35,31 @@
 		
 		<div id="Camera" style="position: relative;"> <!--Camera-->
 			
-			<div id="kamera">
+			<div id="camera">
 				
-				<img style="-webkit-user-select: none;" src="http://10.58.83.11:5800" width="640" height="480"> <!--LimeLight--> 
+				<img id="vision" style="-webkit-user-select: none;" width="640" height="480"> <!--LimeLight--> 
+				
+			</div>
+			
+			<div id="akumulator">
+				
+				<svg style="width: 100%; height: 100%;">
+					<g transform="translate(100 50)">
+						
+						<rect id="akumulatorVoltage" x=-45 y=-20 width=90 height=40 style="fill:purple;"></rect>	
+						
+						<rect x=-45 y=-20 width=90 height=40 style="fill:none;"></rect>
+						
+						<rect x=-35 y=-30 width=20 height=10 style="fill:none;"></rect>
+						<rect x=15 y=-30 width=20 height=10 style="fill:none;"></rect>
+						
+					</g>
+					<g transform="translate(100 150)">
+						
+						<text x=-1px y=-40px id="akumulatorVoltageValue" text-anchor="middle" style="fill:white; stroke-width: 2.5px; font-size: 40px;">0V</text>
+						
+					</g>
+				</svg>
 				
 			</div>
 			
