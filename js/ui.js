@@ -39,17 +39,13 @@ var ui = {
 	
 	varList: document.getElementById('tuning'),
 	
-	autonomus: {
+	autonomus: document.getElementById('selectAuto'),
+	
+	camera: { 
 		
-		left: document.getElementById('selectLeft'),
-		
-		middle: document.getElementById('selectMiddle'),
-		
-		right: document.getElementById('selectRight'),
+		vision: document.getElementById('cameraVision'),
 		
 	},
-	
-	camera : document.getElementById('camera'),
 	
 	akumulator : document.getElementById('akumulatorVoltage'),
 	
@@ -69,7 +65,7 @@ function onRobotConnection(connected) {
 	if(connected) ui.robotState.style.background = "green";
 	else ui.robotState.style.background = "red";
 	
-	ui.camera.src = "http://10.58.83.11:5800";
+	//ui.camera.src = "http://10.58.83.11:5800";
 }
 
 //attachSelectToSendableChooser("autonomusList", "Autonomous Mode");
@@ -170,7 +166,7 @@ function onValueChanged(key,value,isNew) {
 		
 		case '/SmartDashboard/aiming_ActualPosition':
 			
-			ui.stats.potArrow.style.transform = "rotate(" +  ((value - 48)*45/14) + "deg)";
+			ui.stats.potArrow.style.transform = "rotate(" +  ((value*100 - 48)*30/14) + "deg)";
 			
 			ui.stats.potValue.innerHTML = parseInt(value);
 			
@@ -180,17 +176,17 @@ function onValueChanged(key,value,isNew) {
 			
 		case '/SmartDashboard/SendableChooser[0]/options':
 			
-			while (ui.autonomus.left.firstChild) {
-				ui.autonomus.left.removeChild(ui.autonomus.left.firstChild);
+			while (ui.autonomus.firstChild) {
+				ui.autonomus.removeChild(ui.autonomus.firstChild);
 			}
 			
 			for (i = 0; i < value.length; i++) {
 				var option = document.createElement('option');
 				option.innerHTML = value[i];
-				ui.autonomus.left.appendChild(option);
+				ui.autonomus.appendChild(option);
 			}
 			
-			ui.autonomus.left.value = value[0];
+			ui.autonomus.value = value[0];
 			
 			NetworkTables.setValue("/SmartDashboard/AutoSelected", value[0]);
 			
@@ -198,15 +194,18 @@ function onValueChanged(key,value,isNew) {
 			
 			//console.log(NetworkTables.getValue('/SmartDashboard/AutoChoices/Deault_Auto'));
 			
-			ui.autonomus.left.style.backgroundColor = "#a0a0a0";
+			ui.autonomus.style.backgroundColor = "#a0a0a0";
 			
 			break;
 		
-		case '/SmartDashboard/akumulatorVoltage':
+		case '/SmartDashboard/BatteryVoltage':
 			
-			ui.akumulator.height = value * 40 / 14;
+			if (value<12.3) ui.akumulator.style.fill = "red";
+			else ui.akumulator.style.fill = "green";
 			
-			ui.akumulatorValue.innerHTML = value + V;
+			ui.akumulator.height = value * 60 / 15;
+			
+			ui.akumulatorValue.innerHTML = parseFloat(parseInt(value*10))/10 + " V";
 			
 			break;
 	}

@@ -79,6 +79,7 @@ function onLoad(){
 	chart(canvas.driveRMotor, 0);
 	chart(canvas.shootLMotor, 0);
 	chart(canvas.shootRMotor, 0);
+	
 }
 
 function canvasTranslate(){			//Transfer położenia punktu (0.0) na środek wskaźnika

@@ -37,26 +37,26 @@
 			
 			<div id="camera">
 				
-				<img id="vision" style="-webkit-user-select: none;" width="640" height="480"> <!--LimeLight--> 
+				<img id="cameraVision" style="-webkit-user-select: none;" src = "http://10.58.83.11:5800" width="640" height="480"> <!--LimeLight--> 
 				
 			</div>
 			
 			<div id="akumulator">
 				
 				<svg style="width: 100%; height: 100%;">
-					<g transform="translate(100 50)">
+					<g transform="translate(150 75)">
 						
-						<rect id="akumulatorVoltage" x=-45 y=-20 width=90 height=40 style="fill:purple;"></rect>	
+						<rect id="akumulatorVoltage" x=-60 y=-30 width=120 height=60 style="fill:purple;"></rect>	
 						
-						<rect x=-45 y=-20 width=90 height=40 style="fill:none;"></rect>
+						<rect x=-60 y=-30 width=120 height=60 style="fill:none;"></rect>
 						
-						<rect x=-35 y=-30 width=20 height=10 style="fill:none;"></rect>
-						<rect x=15 y=-30 width=20 height=10 style="fill:none;"></rect>
+						<rect x=-40 y=-40 width=25 height=10 style="fill:#404040;"></rect>
+						<rect x=15  y=-40 width=25 height=10 style="fill:#404040;"></rect>
 						
 					</g>
-					<g transform="translate(100 150)">
+					<g transform="translate(150 225)">
 						
-						<text x=-1px y=-40px id="akumulatorVoltageValue" text-anchor="middle" style="fill:white; stroke-width: 2.5px; font-size: 40px;">0V</text>
+						<text x=-1px y=-60px id="akumulatorVoltageValue" text-anchor="middle" style="fill:white; stroke-width: 2.5px; font-size: 40px;">0V</text>
 						
 					</g>
 				</svg>
@@ -180,7 +180,7 @@
 		<div id="Autonomous" style="position: relative;">			<!--Automatyka-->
 			
 			
-			<div style="position:absolute; top:50px; left:50px; width:1101px; height: 100px; border: 2px solid #202020;">
+			<div style="position:absolute; top:50px; left:275px; width: 650px; height: 100px; border: 2px solid #202020;">
 				
 				<div class="auto">
 					
@@ -189,39 +189,9 @@
 							Left
 						</center>
 					</div>
-					<select id="selectLeft" style="width:100%; height:calc(50% - 1px); font-size: 16px;">
+					<select id="selectAuto" style="width:100%; height:calc(50% - 1px); font-size: 16px;">
 						
-						
-					</select>
-					
-					
-				</div>
-				
-				<div class="auto">
-					
-					<div style="width:100%; height:calc(50% - 2px); border-bottom: 2px solid #202020;">
-						<center class="shadow" style="font-size:32px; padding-top:10px;">
-							Middle
-						</center>
-					</div>
-					<select id="selectMiddle" style="width:100%; height:calc(50% - 1px); font-size: 16px;">
-						
-						<!-- <option>Hola, me llamo nikt</option> -->
-						
-					</select>
-					
-				</div>
-				
-				<div class="auto">
-					
-					<div style="width:100%; height:calc(50% - 2px); border-bottom: 2px solid #202020;">
-						<center class="shadow" style="font-size:32px; padding-top:10px;">
-							Right
-						</center>
-					</div>
-					<select id="selectRight" style="width:100%; height:calc(50% - 1px); font-size: 16px;">
-						
-						<!-- <option>IDK</option> -->
+						<option>Defoult Auto</option>
 						
 					</select>
 					
@@ -232,8 +202,6 @@
 		</div>
 		
 	</div>
-	
-	
 	
 </body>
 
